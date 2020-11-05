@@ -1,0 +1,41 @@
+:root {
+	--color: #eee;
+	--color-title: #fff;
+	--color-2: #ccc;
+	--color-3: #aaa;
+
+	--background-color: #202020;
+	--background-accent-1: #282828;
+	--background-accent-2: #303030;
+	--background-accent-3: #383838;
+	--background-accent-4: #404040;
+	--background-accent-5: #484848;
+	--background-accent-6: #505050;
+	--background-accent-7: #585858;
+	--background-accent-8: #606060;
+	--background-accent-9: #686868;
+	--background-accent-10: #707070;
+	--background-accent-11: #787878;
+	--background-accent-12: #808080;
+	--background-accent-13: #888888;
+	--background-accent-14: #909090;
+	--background-accent-14: #999999;
+
+	--button-active: var(--background-accent-3);
+	--button: var(--background-accent-5);
+	--hover-transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+	--hover-transition-duration: 0.3;
+
+	--border-radius: 5px;
+	--border-radius-small: 3px;
+
+	--ut-pink: #dd4c9c;
+	--ut-pink-dark: #cf0072;
+	--ut-pink-light: #eb70b4;
+
+	word-break: break-word !important;
+}
+
+::selection {
+	background: lightgrey !important;
+}

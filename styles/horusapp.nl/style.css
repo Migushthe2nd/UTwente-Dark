@@ -1,0 +1,130 @@
+html {
+	background: var(--background-color) !important;
+}
+
+body {
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+	background-color: var(--background-color) !important;
+}
+
+.Login {
+	background-color: var(--background-accent-2) !important;
+}
+
+.Login img {
+	filter: drop-shadow(0 0 30px var(--color));
+}
+
+.card:hover,
+.navigation-bar-item-link:hover {
+	transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s !important;
+	filter: brightness(0.8) !important;
+	cursor: pointer !important;
+}
+
+.NavigationBar {
+	background: var(--background-accent-1) !important;
+}
+
+.NavigationBar .navigation-bar-item-link:not(.navigation-bar-item-link-active) .list-group-item {
+	background-color: var(--background-accent-3) !important;
+}
+
+.navigation-bar-item-link,
+.navigation-bar-item-link:hover {
+	color: var(--color);
+}
+
+.border-top {
+	border-top-color: var(--background-accent-4) !important;
+}
+
+.border-right {
+	border-right-color: var(--background-accent-4) !important;
+}
+
+.border-bottom {
+	border-bottom-color: var(--background-accent-4) !important;
+}
+
+.card {
+	border-color: var(--background-accent-6);
+}
+
+.card-body {
+	background-color: var(--background-accent-3) !important;
+}
+
+.text-muted {
+	color: var(--color-3) !important;
+}
+
+.table .thead-light th {
+	color: var(--color);
+	background-color: var(--background-accent-5);
+	border-color: var(--background-accent-6);
+}
+
+.table-bordered td,
+.table-bordered th {
+	border-color: var(--background-accent-6);
+}
+
+.form-control,
+.form-control::placeholder {
+	color: var(--color);
+	background-color: var(--background-accent-3);
+	border-color: var(--background-accent-6);
+}
+
+.form-control::placeholder {
+	color: var(--color-2);
+}
+
+.form-control:focus {
+	color: var(--color);
+	background-color: var(--background-accent-3);
+}
+
+.list-group-item {
+	background-color: var(--background-accent-3);
+}
+
+.sign-off-table-heading {
+	background-color: var(--background-accent-3);
+	border-color: var(--background-accent-6);
+	color: var(--color) !important;
+}
+
+.sign-off-table-cell-blank {
+	background-color: var(--background-accent-4);
+}
+
+.sign-off-table-cell-complete {
+	background-color: var(--background-accent-4);
+	color: #68c77e !important;
+}
+
+.AssignmentSetCompleteIcon {
+	background-color: var(--background-accent-4);
+	border: 1px solid #28a745;
+	color: #68c77e;
+}
+
+.mark,
+mark {
+	background-color: var(--background-accent-10);
+}
+
+button[id^='toggle-group']::after {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1;
+	pointer-events: auto;
+	content: '';
+	box-sizing: border-box;
+}

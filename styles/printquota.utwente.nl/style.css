@@ -1,0 +1,111 @@
+:root {
+	--xerox-accent: #e67600;
+}
+
+* {
+	outline: unset !important;
+}
+
+html,
+body {
+	background: var(--background-color) !important;
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+}
+
+input[name*='onsubmit'] {
+	border: 2px solid var(--background-accent-6) !important;
+	outline: none !important;
+}
+
+input[name*='onsubmit']:focus {
+	border-color: var(--xerox-accent) !important;
+}
+
+input:not([name*='onsubmit']),
+textarea,
+select {
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input:not([name*='onsubmit'])::placeholder,
+select::placeholder,
+textarea::placeholder {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input:not([name*='onsubmit']):focus,
+select:focus,
+textarea:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--xerox-accent) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+a[id^='a_'] {
+	border: 2px solid var(--background-accent-6) !important;
+}
+
+.modal-backdrop,
+body .throbber {
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.throbber {
+	background-image: url(loading.gif);
+}
+
+.modal-content {
+	background: var(--background-color) !important;
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+}
+.modal-content > * {
+	border-color: var(--background-accent-6) !important;
+}
+
+.close,
+.close:hover,
+.close:focus {
+	color: var(--color-2) !important;
+}
+
+.btn-primary {
+	border-color: var(--background-accent-6) !important;
+	background: var(--button) !important;
+	color: var(--color) !important;
+}
+
+.btn-default:focus,
+.btn-primary:focus {
+	outline: none !important;
+	border-color: var(--xerox-accent) !important;
+}
+
+nav ul li a.active {
+	background-color: var(--button-active) !important;
+}
+
+#banner {
+	background: var(--background-accent-2) !important;
+	border: 2px solid var(--background-accent-6) !important;
+}
+
+#partner-logo {
+	filter: invert(1);
+	max-width: 200px;
+}
+
+.saldo {
+	background-color: var(--background-accent-2) !important;
+	border: 2px solid var(--background-accent-6) !important;
+}

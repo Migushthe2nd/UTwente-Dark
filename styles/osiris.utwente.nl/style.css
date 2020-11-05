@@ -1,0 +1,66 @@
+* {
+	outline: unset !important;
+}
+
+body {
+	background-color: var(--background-color) !important;
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+	border-width: 2px !important;
+}
+
+input,
+textarea,
+select {
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--ut-pink) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+a {
+	color: var(--ut-pink-light) !important;
+}
+
+.TabBackground0010,
+.TabBackground,
+.owcTabShadow {
+	background: unset !important;
+}
+
+.MessageBackground1010 {
+	border-left: 2px solid var(--background-accent-6) !important;
+}
+
+.TabBackground0010 {
+	border-left: 2px solid var(--background-accent-6) !important;
+	border-bottom: 2px solid var(--background-accent-6) !important;
+}
+
+.TabBackground {
+	border-bottom: 2px solid var(--background-accent-6) !important;
+}
+
+.owcTabShadow {
+	border-left: 2px solid var(--background-accent-6) !important;
+}

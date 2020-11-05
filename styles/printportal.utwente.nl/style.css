@@ -1,0 +1,176 @@
+:root {
+	--accent: #ef3e60;
+	--accent-dark: #d52e4e;
+}
+
+* {
+	outline: unset !important;
+}
+
+html,
+body {
+	background: var(--background-color) !important;
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+}
+
+a,
+.LogonStatus {
+	color: var(--color) !important;
+}
+
+input,
+textarea,
+select {
+	padding: 0.2em 2.5%;
+	font-size: 1.5em;
+	margin: 0.2em 0 0.2em 0.2em;
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	border-radius: var(--border-radius-small);
+	box-shadow: unset !important;
+}
+
+input[type='submit'] {
+	font-size: 1em;
+	background-color: var(--accent) !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--accent) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+input[type='submit'] {
+	background-color: var(--accent) !important;
+}
+
+.header_cirratologo_login {
+	filter: invert(1);
+}
+
+form#CirratoForm > div#main {
+	padding-top: 150px !important;
+}
+
+/* Replace images with proper ui */
+table#LoginPage {
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	border-radius: var(--border-radius);
+	border: 2px solid var(--background-accent-6);
+	background-color: var(--background-accent-2);
+}
+
+div[style*='cirrato_box_corner'] {
+	background-image: url(cirrato_box_corner.png) !important;
+	margin-top: -45px;
+}
+
+/* Remove remaining images */
+div[style*='login_topleft'],
+div[style*='login_topmid'],
+div[style*='login_left'],
+div[style*='login_right'],
+div[style*='login_bottomleft'],
+div[style*='login_bottommid'],
+div[style*='login_bottomright'],
+.topmenucontrol *,
+.submenu2 {
+	background-image: unset !important;
+}
+
+table#LoginPage > tbody > tr:nth-of-type(2),
+table#LoginPage > tbody > tr:nth-of-type(3) {
+	display: none !important;
+}
+
+/* After login */
+
+div#main > #content > div:nth-of-type(1),
+.content-box {
+	border-radius: var(--border-radius) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	background-color: var(--background-accent-1) !important;
+	padding: 10px !important;
+	margin-bottom: 10px !important;
+	color: var(--color-2) !important;
+}
+
+div.topmenu,
+div.topBackground,
+tr.topBackground,
+td.topBackground,
+.topBackground {
+	background: var(--background-accent-1);
+	width: 100%;
+	border-bottom: 1px solid var(--background-accent-4) !important;
+}
+
+div.cirratoheader {
+	left: unset;
+	right: 0;
+	margin-top: 5px;
+	margin-right: 10px;
+}
+
+.header_cirratologo,
+.topBackground > .background {
+	background: url(Web_logo.png) no-repeat right center !important;
+}
+
+.SelectedTopButton,
+.SelectedSubMenuButton {
+	background-color: var(--accent-dark) !important;
+}
+
+.UnSelectedTopButton,
+.UnSelectedSubMenuButton {
+	background-color: var(--button-color) !important;
+}
+
+div.topmenucontrol {
+	padding-top: 29px;
+}
+
+div.topmenucontrol > a {
+	margin-right: 5px;
+	border: 2px solid var(--background-accent-6);
+	border-bottom: unset;
+	border-radius: var(--border-radius) var(--border-radius) 0 0 !important;
+}
+
+div.submenu2 {
+	background-color: unset;
+	margin-left: 40px;
+	padding: unset !important;
+	float: unset !important;
+}
+
+div.submenu2 > a {
+	margin-right: 5px;
+	border: 2px solid var(--background-accent-6);
+	padding: 5px 10px;
+	border-top: unset;
+	border-radius: 0 0 var(--border-radius) var(--border-radius) !important;
+}
+
+.ListHeader,
+a.ListHeader {
+	color: var(--color);
+}

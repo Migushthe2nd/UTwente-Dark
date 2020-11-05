@@ -1,0 +1,49 @@
+* {
+	outline: unset !important;
+}
+
+input,
+textarea,
+select {
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--ut-pink) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+.ut-background {
+	background-color: var(--background-color) !important;
+	background-image: url(background.jpg) !important;
+	background-size: cover !important;
+	background-position: center !important;
+}
+
+.ut-widget {
+	background-color: var(--background-accent-2) !important;
+	box-shadow: 0px 0px 40px 10px hsl(0 0% 11% / 0.75) !important;
+	border-radius: var(--border-radius) !important;
+}
+
+img {
+	filter: invert(1);
+}

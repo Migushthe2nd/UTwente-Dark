@@ -1,0 +1,269 @@
+html {
+	background: var(--background-color) !important;
+}
+
+body {
+	color: var(--color) !important;
+	border-color: var(--background-accent-6) !important;
+	background-color: var(--background-color) !important;
+}
+
+*[class^='title-'],
+*[class^='smallTitle-'],
+*[class^='connecting-'],
+*[class^='name-'],
+*[class^='userNameMain-'],
+*[class^='chatNameMain-'] {
+	color: var(--color) !important;
+}
+
+*[class^='label-'],
+*[class^='message-'] {
+	color: var(--color-2) !important;
+}
+
+i,
+i[class^='icon-'] {
+	background: unset !important;
+	color: var(--color) !important;
+}
+
+button > span:first-child,
+button[class^='button-'] {
+	color: var(--color-2) !important;
+	background-color: var(--button) !important;
+	border-color: var(--background-accent-6) !important;
+	outline: unset !important;
+}
+
+button > span:first-child:hover,
+button[class^='button-']:hover {
+	border-color: var(--color-link-hover) !important;
+}
+
+div[class^='dropdown-'] div[class^='content-'] {
+	background-color: var(--button) !important;
+}
+
+span[class^='itemLabel-'] {
+	color: var(--color-2) !important;
+}
+
+*[class*='tabList-'] *[class*='tabSelector-'] {
+	color: var(--color) !important;
+}
+
+.react-toggle-track-check,
+.react-toggle-track-x {
+	width: 1.5rem !important;
+}
+
+/* Modals */
+
+div[class*='overlay-'] {
+	background-color: rgba(6, 23, 42, 0.75) !important;
+}
+
+div[class*='modal-'] {
+	background-color: var(--background-accent-2) !important;
+	padding: 1.5rem;
+	min-height: 23rem;
+	border-radius: var(--border-radius);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+	outline: 2px transparent solid;
+	align-self: auto !important;
+}
+
+div[class*='modal-'] div[class*='content-'] {
+	color: var(--color-2) !important;
+}
+
+div[class*='externalVideoNote-'] {
+	color: var(--color-2) !important;
+}
+
+div[class*='fileList-'] {
+	background: var(--background-accent-3) !important;
+}
+
+*[class*='table-'] > tbody > tr th {
+	color: var(--color);
+}
+
+/* Toasts */
+.Toastify *[class*=' toast-'],
+.Toastify *[class*=' toast-']:hover,
+.Toastify *[class*=' toast-']:focus {
+	background-color: var(--background-accent-3);
+}
+
+/* User list */
+
+div[class^='userList-'] {
+	background-color: var(--background-accent-1) !important;
+}
+
+div[class^='userlistPad-'] {
+	background-color: var(--background-accent-6) !important;
+	width: 1px;
+}
+
+div[class^='list-'],
+div[class^='chatsList-'] {
+	margin: 0 !important;
+}
+
+div[class^='list-'] div[class^='listItem-'],
+div[class^='chatsList-'] div[class^='chatListItem-'] {
+	border-radius: unset !important;
+	background-color: var(--button);
+	color: var(--color);
+	margin: unset !important;
+}
+
+div[class*='active-'],
+div[class*='chatListItem-']:active,
+div[class*='chatListItem-']:focus,
+div[class*='userListItem-']:active,
+div[class*='userListItem-']:focus,
+div[class*='usertListItemWithMenu-']:active,
+div[class*='usertListItemWithMenu-']:focus,
+div[class*='usertListItemWithMenu-'],
+div[class*='listItem--']:active,
+div[class*='listItem--']:focus {
+	background-color: var(--button-active) !important;
+	box-shadow: unset !important;
+	border-left: 2px solid var(--color-link-hover);
+}
+
+div[class^='scrollableList-'] {
+	background: unset !important;
+}
+
+div[class^='participantsList-'] {
+	padding: unset !important;
+}
+
+div[class^='participantsList-'] > div[class*='usertListItemWithMenu-'],
+div[class^='participantsList-'] > div[class*='userListItem-'] {
+	border-radius: unset !important;
+}
+
+div[class*='userListItem-']:hover,
+div[class*='usertListItemWithMenu-']:hover,
+div[class*='chatListItem-']:hover,
+div[class*='listItem--']:hover {
+	transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s !important;
+	background-color: rgba(0, 0, 0, 0.2) !important;
+	cursor: pointer !important;
+}
+
+*[class*='participantsList'],
+*[class*='chatsList-'],
+*[class*='captionsList-'] {
+	padding: unset !important;
+}
+
+section[class^='note-'] > div {
+	padding-right: var(--sm-padding-x);
+}
+
+button[class^='button-']:hover,
+button[class^='button-']:focus {
+	background-color: var(--button) !important;
+}
+
+div[class*='avatar-'] div[class*='content-'] {
+	height: 0 !important;
+}
+
+/* Notes */
+div[class^='note-'] > iframe {
+	filter: invert(0.75);
+	border: 1px #777777 solid;
+	border-radius: var(--border-radius);
+}
+
+/* Chat */
+
+div[class^='chat-'],
+div[class^='note-'] {
+	background-color: var(--background-accent-2) !important;
+}
+
+div[class^='messageList-'] {
+	background: unset !important;
+}
+
+p[class^='systemMessage-'] {
+	background: var(--background-accent-3) !important;
+	border-color: var(--background-accent-6) !important;
+}
+
+div[class^='messageListWrapper-'] {
+	padding-right: var(--sm-padding-x);
+}
+
+*[class^='input-'],
+input,
+textarea,
+select {
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+*[class^='input-']::placeholder,
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+*[class^='input-']:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--color-link-hover) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+div[class*='title-'] > button,
+*[class*='header-'] > button,
+*[class*='header-'] > *[class*='actions-'] > button {
+	border-radius: var(--border-radius) !important;
+	padding: 8px;
+}
+
+/* Poll */
+div[class^='list-'] div[class^='listItem-'] span {
+	border-radius: unset !important;
+	color: var(--color);
+	margin: unset !important;
+}
+
+div[class^='poll-'] {
+	background: var(--background-accent-3);
+}
+
+div[class*='instructions-'],
+div[class*='stats-'] > div[class*='main-'] > * {
+	color: var(--color-2);
+}
+
+label {
+	color: var(--color) !important;
+}
+
+*[class*='cornerTriangle-']::before {
+	border-left-color: var(--color-2) !important;
+	border-bottom-color: var(--color-2) !important;
+}

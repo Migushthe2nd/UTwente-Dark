@@ -1,0 +1,247 @@
+html {
+	background: var(--background-color) !important;
+}
+
+::-webkit-scrollbar-track {
+	background: #aaa !important;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(0, 0, 0, 0.5) !important;
+}
+
+a,
+a:visited,
+a:active {
+	color: #ddd !important;
+}
+
+a:hover {
+	color: #fff !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabs {
+	border-color: #666 !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab {
+	background-color: #333 !important;
+	border-color: #666 !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover {
+	background-color: #333 !important;
+	border-color: #666 !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab .gwt-Label {
+	color: #ddd !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab .gwt-Label:hover {
+	color: #fff !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected,
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected:hover {
+	background-color: var(--background-color) !important;
+	color: #fff !important;
+}
+
+.gwt-HTML,
+.gwt-InlineLabel {
+	color: #ddd !important;
+}
+
+.gwt-HTML:hover,
+.gwt-InlineLabel:hover {
+	color: #fff !important;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover {
+	color: #ddd !important;
+}
+
+.sidebar-panel {
+	background: var(--background-color) !important;
+	border-top-color: #666 !important;
+	border-left-color: #666 !important;
+}
+
+.sidebar-content-panel-buttons {
+	border-bottom: 1px solid #666 !important;
+	background-color: var(--background-color) !important;
+}
+
+.datePickerDays {
+	background: var(--background-color) !important;
+}
+
+.datePickerDayIsWeekend {
+	background-color: #292929 !important;
+}
+
+.datePickerDay.datePickerDayIsFiller {
+	color: #888 !important;
+}
+
+.datePickerDay {
+	color: #ddd !important;
+}
+
+.GCUXQXIAP,
+.GCUXQXIKI {
+	border-bottom: 1px solid #666 !important;
+}
+
+.GCUXQXIAP,
+.GCUXQXIAP > div,
+.GCUXQXIKI,
+.GCUXQXIAJ,
+.GCUXQXICJ {
+	background-color: var(--background-color) !important;
+}
+
+.GCUXQXIAJ:hover,
+.GCUXQXICJ:hover,
+.GCUXQXIHJ:hover,
+.GCUXQXIEJ:hover,
+.GCUXQXIGJ:hover,
+.GCUXQXIOI:hover {
+	color: #fff !important;
+	background-color: initial !important;
+}
+
+.GCUXQXIPO:before {
+	display: none !important;
+}
+
+.GCUXQXIBP,
+.GCUXQXINO,
+.GCUXQXIKI {
+	color: #ddd !important;
+}
+
+.GCUXQXIHV.GCUXQXIFV {
+	filter: invert(1) !important;
+}
+
+.GCUXQXIFV,
+.imageCheckBox-fakeBox {
+	filter: invert(1) !important;
+}
+
+.GCUXQXIHQ {
+	margin: 10px 14px 0 14px !important;
+	padding-bottom: 10px !important;
+}
+
+.wc-header td {
+	border-bottom: 1px solid #666 !important;
+	background-color: var(--background-color) !important;
+	color: #ddd !important;
+}
+
+.wc-hour-header,
+.wc-hour-header.outside-business-hours {
+	background: var(--background-color) !important;
+	color: #ddd !important;
+}
+
+.wc-day-column {
+	border-left: 1px solid #444 !important;
+	background-color: #272727 !important;
+}
+
+.wc-cal-event {
+	background-color: #333 !important;
+	color: #ddd !important;
+	font-size: smaller !important;
+}
+
+.wc-cal-event-border {
+	border: 1px solid #777 !important;
+}
+
+.wc-module-name {
+	font-weight: bold !important;
+	font-size: small !important;
+}
+
+.wc-time {
+	filter: brightness(0.8) !important;
+}
+
+.wc-time-slot {
+	border-bottom: 1px solid #444 !important;
+}
+
+.wc-hour-end,
+.wc-hour-header {
+	border-bottom: 1px solid #666 !important;
+}
+
+.top-header-image {
+	filter: invert(1) !important;
+}
+
+.mytimetable-application-panel {
+	background-color: var(--background-color) !important;
+}
+
+.popupContent,
+.gwt-TabLayoutPanelContentContainer,
+.GCUXQXID1 {
+	background-color: var(--background-color) !important;
+	color: #ddd !important;
+}
+
+.GCUXQXIB0,
+.GCUXQXIB0 ul,
+.GCUXQXIPY {
+	background-color: #444 !important;
+	color: #ddd !important;
+	border: 1px solid #666 !important;
+}
+
+.GCUXQXIC0 .GCUXQXIB0:after {
+	border-bottom: 6px solid #444 !important;
+}
+
+.GCUXQXIB0 li.GCUXQXIO- {
+	color: #fff !important;
+	background-color: var(--background-color) !important;
+}
+
+.GCUXQXIB0 li.GCUXQXIA0,
+.GCUXQXIB0 li.GCUXQXIE0 {
+	color: #ddd !important;
+}
+
+.GCUXQXIEP,
+.GCUXQXICR {
+	border: 1px solid #666 !important;
+	background-color: unset !important;
+}
+
+.GCUXQXIKW td {
+	border-color: #666 !important;
+	background-color: var(--background-color) !important;
+	color: #ddd !important;
+}
+
+.GCUXQXIHX {
+	background-color: #111 !important;
+}
+
+.GCUXQXIJW {
+	color: #888 !important;
+}
+
+.GCUXQXIIV td {
+	border-color: #666 !important;
+}
+
+.GCUXQXIIV td {
+	background-color: initial !important;
+}
