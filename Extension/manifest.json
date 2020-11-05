@@ -1,0 +1,44 @@
+{
+	"name": "UTwente Dark Themes",
+	"description": "A collection of dark themes for UTwente services",
+	"author": "Migush#4096",
+	"version": "0.1",
+	"web_accessible_resources": [
+		"*"
+	],
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_title": "DARK UTWENTE!"
+	},
+	"permissions": [
+		"activeTab",
+		"storage",
+		"tabs",
+		"\u003Call_urls>",
+		"webRequest",
+		"webRequestBlocking",
+		"management"
+	],
+	"content_scripts": [
+		{
+			"all_frames": true,
+			"match_about_blank": true,
+			"run_at": "document_start",
+			"matches": [
+				"https://*.utwente.nl/*",
+				"https://*.horusapp.nl/*",
+				"https://*.blindsidenetworks.com/*"
+			],
+			"js": [
+				"content/injector.js"
+			]
+		}
+	],
+	"background": {
+		"persistent": true,
+		"scripts": [
+			"background.js"
+		]
+	},
+	"manifest_version": 2
+}
