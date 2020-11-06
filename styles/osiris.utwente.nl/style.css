@@ -3,12 +3,19 @@
 }
 
 body {
-	background-color: var(--background-color) !important;
+	background-color: var(--background-color);
 	color: var(--color) !important;
 	border-color: var(--background-accent-6) !important;
 	border-width: 2px !important;
 }
 
+body.PsbBody,
+body.psbTabBarBody,
+.psbOnderwijsCatalogusENBody {
+	background-image: url(BGR_MNU.png) !important;
+}
+
+button,
 input,
 textarea,
 select {
@@ -42,14 +49,32 @@ a {
 	color: var(--ut-pink-light) !important;
 }
 
+nobr {
+	color: var(--color-2);
+}
+
 .TabBackground0010,
 .TabBackground,
 .owcTabShadow {
 	background: unset !important;
 }
 
+.MessageBackground1010,
+.x5t {
+	background: transparent;
+}
+
 .MessageBackground1010 {
-	border-left: 2px solid var(--background-accent-6) !important;
+	border-left: 2px solid !important;
+	border-color: var(--background-accent-6) !important;
+	border-top-width: 2px;
+}
+
+.MessageBackground,
+.x5s {
+	background: transparent;
+	border-color: var(--background-accent-6) !important;
+	border-top-width: 2px;
 }
 
 .TabBackground0010 {
@@ -57,10 +82,192 @@ a {
 	border-bottom: 2px solid var(--background-accent-6) !important;
 }
 
-.TabBackground {
+.TabBackground,
+.psbPageButtons {
 	border-bottom: 2px solid var(--background-accent-6) !important;
 }
 
-.owcTabShadow {
+.owcTabShadow,
+.owcTabBackground,
+.x6w {
 	border-left: 2px solid var(--background-accent-6) !important;
+}
+
+.psbPageButtonsFooter {
+	border-top: 2px solid var(--background-accent-6) !important;
+}
+
+.psbButtonLink {
+	width: auto;
+}
+
+.psbButtonLink,
+.psbPageButtons td,
+.psbPageButtonsFooter td {
+	white-space: nowrap !important;
+}
+
+.OraTabBar img {
+	display: none !important;
+}
+
+.OraTabBarSelected {
+	background: var(--button-active);
+	border-color: var(--ut-pink) !important;
+	border-bottom: unset;
+}
+
+.OraTabBarSelected,
+.OraTabBarEnabled {
+	background: var(--button-active);
+	border: 2px solid transparent;
+	border-bottom: unset;
+	padding: 5px;
+	border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.OraTabBarEnabled {
+	background: var(--button);
+}
+
+/* Notes */
+
+span#Notities > table {
+	width: 100%;
+}
+
+.psbFrameTitel,
+.x6s {
+	color: var(--color);
+}
+
+.psbNoDataFound,
+.psbToonTekst,
+.x73 {
+	color: var(--color-3);
+}
+
+table[id*='LPContainer_'] {
+	border-radius: var(--border-radius-small);
+	border: 2px solid var(--background-accent-6) !important;
+}
+
+table[id*='LPContainer_'] td {
+	border: unset;
+	border-left: 2px solid var(--background-accent-6) !important;
+	padding: 5px;
+}
+
+table[id*='LPContainer_'] td:first-of-type {
+	border-left: unset !important;
+}
+
+.psbSolidTableBorder {
+	border: 2px solid var(--background-accent-6);
+	background-color: var(--background-accent-1);
+	border-radius: var(--border-radius);
+}
+
+.psbSortHeader,
+.x60 {
+	color: var(--color);
+}
+
+.OraSortableHeaderBorder,
+.x54,
+.OraTableColumnHeader,
+.x1r,
+.OraTableColumnHeaderNumber,
+.x1s {
+	color: var(--color);
+	border-bottom: 2px solid var(--background-accent-6);
+}
+
+.OraTableCellText,
+.x1l,
+.OraTableCellNumber,
+.x1n {
+	background-color: var(--background-accent-2);
+	color: var(--color-2);
+}
+
+.OraTableCellTextBand,
+.x1m,
+.OraTableCellNumberBand,
+.x1o {
+	border-color: #999999;
+	vertical-align: top;
+	background-color: var(--background-accent-3);
+	color: var(--color-2);
+}
+
+/* Progress */
+
+form[action*='StudieVoortgang'] {
+	background-color: var(--background-color-2) !important;
+}
+
+form[action*='StudieVoortgang'] table > tbody > tr > td[valign='top'] > table:first-of-type {
+	width: 100%;
+	background-color: var(--background-accent-2);
+	padding: 5px;
+	border: 2px solid var(--background-accent-6);
+	border-radius: var(--border-radius);
+}
+
+form[action*='StudieVoortgang'] table > tbody > tr > td[valign='top'] > table:first-of-type iframe {
+	width: 100%;
+}
+
+body.psbLegeBody {
+	background-color: var(--background-accent-2) !important;
+}
+
+body.psbLegeBody span[class^='c'] {
+	color: var(--color-2) !important;
+}
+
+body.psbLegeBody td[class^='c'] {
+	background: transparent !important;
+}
+
+/* Courses > Course module */
+
+.psbFilterTableContent,
+.x5k {
+	background: var(--background-accent-2) !important;
+	border-radius: var(--border-radius-small);
+	border: 2px solid var(--background-accent-6) !important;
+}
+
+/* Course details */
+
+.owcTabBackgroundTop {
+	background: var(--background-color);
+	border-bottom-width: 2px;
+	border-color: var(--background-accent-6);
+}
+
+.owcTabBackground,
+.x6w {
+	border-color: var(--background-accent-6);
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	background-color: var(--background-color);
+}
+
+.owcTabBackgroundLineTop,
+.x6y {
+	background-color: var(--background-accent-6);
+	background-image: url(../../../template/laf/images/OSIRIS/owcTabBgLine.png);
+}
+
+.OraTableControlBarTop {
+	border-bottom: 2px solid var(--background-accent-6);
+}
+
+.psbTekst .OraTableCellText {
+	border-radius: 5px;
+	border: 2px solid var(--background-accent-6);
+	padding: 5px;
 }

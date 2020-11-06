@@ -538,6 +538,11 @@ a.external .ui-icon-extlink {
 	border-bottom: unset !important;
 }
 
+.EmptyDays-styles__root {
+	background: transparent !important;
+	color: var(--color) !important;
+}
+
 /* Missing indicator */
 .bZMhq_bGBk {
 	background: var(--background-accent-4) !important;

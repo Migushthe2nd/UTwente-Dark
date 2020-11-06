@@ -35,7 +35,7 @@ textarea:focus {
 	background-color: var(--background-color) !important;
 	background-image: url(background.jpg) !important;
 	background-size: cover !important;
-	background-position: center !important;
+	background-position: top !important;
 }
 
 .ut-widget {

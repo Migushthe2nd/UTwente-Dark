@@ -3,21 +3,18 @@
 	"description": "A collection of dark themes for UTwente services",
 	"author": "Migush#4096",
 	"version": "0.1",
-	"web_accessible_resources": [
-		"*"
-	],
-	"browser_action": {
-		"default_icon": "icon.png",
-		"default_title": "DARK UTWENTE!"
+	"page_action": {
+		"default_icon": "icons/128.png",
+		"default_title": "DARK UNI!"
 	},
 	"permissions": [
-		"activeTab",
-		"storage",
 		"tabs",
-		"\u003Call_urls>",
+		"management",
+		"storage",
+		"https://signon.utwente.nl/",
 		"webRequest",
 		"webRequestBlocking",
-		"management"
+		"declarativeContent"
 	],
 	"content_scripts": [
 		{
