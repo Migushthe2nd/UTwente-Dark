@@ -42,7 +42,7 @@ const enable = (host) => {
 		element.setAttribute('type', 'text/css');
 		element.setAttribute('service', 'UTwenteDark');
 		element.setAttribute('href', `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`);
-		// element.setAttribute('href', `https://haverkae.home.xs4all.nl/Files/UTwente_Dark/${path}`); // Haha you found a secret url
+		// element.setAttribute('href', `https://haverkae.home.xs4all.nl/Files/UTwente_Dark/${path}`); // Haha you found the same secret url
 		element.async = true;
 
 		document.documentElement.insertAdjacentElement('beforeend', element);

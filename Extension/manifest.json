@@ -1,8 +1,12 @@
 {
-	"name": "UTwente Dark Themes",
-	"description": "A collection of dark themes for UTwente services",
-	"author": "Migush#4096",
+	"name": "UTwente Dark",
+	"description": "A collection of dark styles for UTwente websites. Contact Migush#4096 on Discord for issues or suggestions.",
+	"author": "Migush",
 	"version": "0.1",
+	"manifest_version": 2,
+	"icons": {
+		"128": "icon_128.png"
+	},
 	"page_action": {
 		"default_icon": {
 			"32": "icons/dark_32.png",
@@ -12,8 +16,6 @@
 		"default_title": "Dark mode unavailable"
 	},
 	"permissions": [
-		"tabs",
-		"management",
 		"storage",
 		"https://*.utwente.nl/*",
 		"https://utwente.instructure.com/*",
@@ -44,6 +46,5 @@
 		"scripts": [
 			"background.js"
 		]
-	},
-	"manifest_version": 2
+	}
 }

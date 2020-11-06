@@ -44,7 +44,7 @@ chrome.pageAction.onClicked.addListener((tab) => {
 	});
 });
 
-// Requesting the main tab host key.
+// Requesting the main tab host key. Increases load time, but idk how else make it work properly for iframes.
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 	if (message.getKey === undefined) return;
 	const key = getHost(sender.tab);
@@ -97,15 +97,10 @@ chrome.webRequest.onHeadersReceived.addListener(
 			if (isCSPHeader(details.responseHeaders[i].name.toUpperCase())) {
 				let csp = details.responseHeaders[i].value;
 
-				// const url = 'https://haverkae.home.xs4all.nl/'; Haha you found this
+				// const url = 'https://haverkae.home.xs4all.nl/'; // Haha you found a secret url
 				const url = 'https://migushthe2nd.github.io/';
-				csp = csp.replace('script-src', `script-src ${url}`);
 				csp = csp.replace('style-src', `style-src ${url}`);
-				csp = csp.replace('connect-src', `connect-src ${url}`);
 				csp = csp.replace('img-src', `img-src ${url}`);
-				csp = csp.replace('font-src', `font-src ${url}`);
-				csp = csp.replace('media-src', `media-src ${url}`);
-				csp = csp.replace('default-src', `media-src ${url}`);
 
 				details.responseHeaders[i].value = csp;
 			}
