@@ -4,14 +4,21 @@
 	"author": "Migush#4096",
 	"version": "0.1",
 	"page_action": {
-		"default_icon": "icons/128.png",
-		"default_title": "DARK UNI!"
+		"default_icon": {
+			"32": "icons/dark_32.png",
+			"64": "icons/dark_64.png",
+			"128": "icons/dark_128.png"
+		},
+		"default_title": "Dark mode unavailable"
 	},
 	"permissions": [
 		"tabs",
 		"management",
 		"storage",
-		"https://signon.utwente.nl/",
+		"https://*.utwente.nl/*",
+		"https://utwente.instructure.com/*",
+		"https://*.blindsidenetworks.com/*",
+		"https://*.horusapp.nl/*",
 		"webRequest",
 		"webRequestBlocking",
 		"declarativeContent"
@@ -23,6 +30,7 @@
 			"run_at": "document_start",
 			"matches": [
 				"https://*.utwente.nl/*",
+				"https://utwente.instructure.com/*",
 				"https://*.horusapp.nl/*",
 				"https://*.blindsidenetworks.com/*"
 			],

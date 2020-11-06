@@ -449,6 +449,10 @@ td,
 	color: var(--color-2) !important;
 }
 
+.fOyUs_bGBk.dxCCp_bGBk {
+	position: relative !important;
+}
+
 .list-view a {
 	transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s !important;
 }

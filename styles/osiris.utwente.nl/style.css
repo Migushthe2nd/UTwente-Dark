@@ -3,7 +3,7 @@
 }
 
 body {
-	background-color: var(--background-color);
+	background-color: var(--background-color) !important;
 	color: var(--color) !important;
 	border-color: var(--background-accent-6) !important;
 	border-width: 2px !important;

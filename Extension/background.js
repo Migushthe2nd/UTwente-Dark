@@ -33,59 +33,49 @@ chrome.runtime.onInstalled.addListener(() => {
 	});
 });
 
+// Persistant pageAction state: https://stackoverflow.com/a/31807498/12314121
 chrome.pageAction.onClicked.addListener((tab) => {
 	const host = getHost(tab);
-	chrome.storage.sync.get({ disabled: {} }, (data) => {
-		data.disabled[host] = !Boolean(data.disabled[host]);
+	chrome.storage.sync.get({ disabledDomains: {} }, (data) => {
+		data.disabledDomains[host] = !Boolean(data.disabledDomains[host]);
 
-		if (data.disabled[host]) {
-			setIcon(tab.id, false);
-		} else {
-			setIcon(tab.id, true);
-		}
-
-		// Persistant pageAction state: https://stackoverflow.com/a/31807498/12314121
-		chrome.storage.sync.set({ disabled: data.disabled });
+		chrome.storage.sync.set({ disabledDomains: data.disabledDomains });
 	});
 });
 
-chrome.storage.sync.get({ disabled: {} }, (result) => {
-	chrome.tabs.query(
-		{
-			active: true,
-			currentWindow: true,
-			windowType: 'normal',
-		},
-		(tabs) => {
-			const tab = tabs[0];
-			const host = getHost(tab);
-
-			if (result.disabled[host]) {
-				setIcon(tab.id, false);
-			} else {
-				setIcon(tab.id, true);
-			}
-		}
-	);
-});
-
-//The content script sends a message when the page has loaded. This function below restores the icon state.
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-	if (message.setImage === undefined) return;
-	setIcon(sender.tab.id, message.setImage);
+// Listen for status changes requested by a the content script
+chrome.runtime.onMessage.addListener(function (message, sender, _sendResponse) {
+	if (message.site === undefined) return;
+	setIcon(sender.tab.id, message.site.enabled);
 });
 
 const getHost = (tab) => {
-	const url = new URL(tab.url);
-	const hostsplit = url.hostname.split('.');
+	const urlObj = new URL(tab.url);
+	const hostsplit = urlObj.hostname.split('.');
 	return hostsplit.slice(Math.max(hostsplit.length - 3, 0)).join('.');
 };
 
 const setIcon = (tabId, status) => {
 	if (status) {
-		chrome.pageAction.setIcon({ tabId, path: 'icons/128.png' });
+		chrome.pageAction.setTitle({ tabId, title: 'Dark mode enabled!' });
+		chrome.pageAction.setIcon({
+			tabId,
+			path: {
+				32: 'icons/dark_32.png',
+				64: 'icons/dark_64.png',
+				128: 'icons/dark_128.png',
+			},
+		});
 	} else {
-		chrome.pageAction.setIcon({ tabId, path: 'icons/128.disabled.png' });
+		chrome.pageAction.setTitle({ tabId, title: 'Dark mode disabled' });
+		chrome.pageAction.setIcon({
+			tabId,
+			path: {
+				32: 'icons/light_32.png',
+				64: 'icons/light_64.png',
+				128: 'icons/light_128.png',
+			},
+		});
 	}
 };
 
@@ -99,7 +89,8 @@ chrome.webRequest.onHeadersReceived.addListener(
 			if (isCSPHeader(details.responseHeaders[i].name.toUpperCase())) {
 				let csp = details.responseHeaders[i].value;
 
-				const url = 'https://migushthe2nd.github.io/ https://haverkae.home.xs4all.nl/';
+				// const url = 'https://haverkae.home.xs4all.nl/'; Haha you found this
+				const url = 'https://migushthe2nd.github.io/';
 				csp = csp.replace('script-src', `script-src ${url}`);
 				csp = csp.replace('style-src', `style-src ${url}`);
 				csp = csp.replace('connect-src', `connect-src ${url}`);
