@@ -1,0 +1,77 @@
+* {
+	outline: unset !important;
+}
+
+a {
+	color: var(--ut-pink-light) !important;
+}
+
+.ut-page-navbar {
+	background: var(--background-accent-1);
+}
+
+.k-dropdown-wrap {
+	margin-bottom: 2px;
+	outline: none !important;
+	color: var(--color) !important;
+	background-color: var(--background-accent-4) !important;
+	border: 2px solid var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+.k-dropdown,
+span.k-colorpicker {
+	background-color: transparent;
+}
+
+.k-dropdown-wrap::placeholder,
+.k-input {
+	outline: none !important;
+	color: var(--color-2) !important;
+	background-color: var(--background-accent-4) !important;
+	border-color: var(--background-accent-6) !important;
+	box-shadow: unset !important;
+}
+
+.k-dropdown-wrap:focus {
+	outline: none !important;
+	color: var(--color) !important;
+	border-color: var(--ut-pink) !important;
+	background-color: var(--background-accent-4) !important;
+}
+
+.k-tabstrip .k-tabstrip-items .k-item.k-state-hover {
+	background-color: var(--button-active) !important;
+	border-bottom: 3px solid var(--ut-pink);
+}
+
+.k-tabstrip .k-tabstrip-items {
+	border-bottom: 2px solid var(--background-accent-6);
+}
+
+.k-tabstrip {
+	background-color: transparent;
+}
+
+.k-tabstrip .k-tabstrip-items .k-item {
+	background-color: var(--button);
+	border-top: 2px solid var(--background-accent-6);
+}
+
+.k-tabstrip .k-tabstrip-items .k-item.k-state-active {
+	background-color: var(--button-active);
+	border-bottom: 3px solid var(--ut-pink);
+}
+
+h4 {
+	color: var(--color);
+}
+
+.k-tabstrip .k-content.k-state-active {
+	background-color: var(--background-accent-2);
+	color: var(--color);
+}
+
+.k-info-colored {
+	filter: invert(0.9);
+}
