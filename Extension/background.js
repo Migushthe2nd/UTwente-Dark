@@ -1,4 +1,4 @@
-// Clear storage in dev environment
+// // Clear storage in dev environment
 // chrome.storage.sync.clear(function () {
 // 	var error = chrome.runtime.lastError;
 // 	if (error) {
@@ -37,15 +37,23 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.pageAction.onClicked.addListener((tab) => {
 	const host = getHost(tab);
 	chrome.storage.sync.get({ disabledDomains: {} }, (data) => {
+		// Set one global key for the domain, because it's safer I guess?
 		data.disabledDomains[host] = !Boolean(data.disabledDomains[host]);
 
 		chrome.storage.sync.set({ disabledDomains: data.disabledDomains });
 	});
 });
 
+// Requesting the main tab host key.
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+	if (message.getKey === undefined) return;
+	const key = getHost(sender.tab);
+	sendResponse({ key });
+});
+
 // Listen for status changes requested by a the content script
 chrome.runtime.onMessage.addListener(function (message, sender, _sendResponse) {
-	if (message.site === undefined) return;
+	if (message.site === undefined || sender.frameId !== 0) return;
 	setIcon(sender.tab.id, message.site.enabled);
 });
 

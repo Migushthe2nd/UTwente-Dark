@@ -14,6 +14,8 @@ const shouldTheme = (host, path) => {
 };
 
 const enable = (host) => {
+	chrome.runtime.sendMessage({ site: { enabled: true } });
+
 	const waitForElm = (selector) => {
 		return new Promise((resolve) => {
 			if (document.querySelector(selector)) {
@@ -39,15 +41,25 @@ const enable = (host) => {
 		element.setAttribute('rel', 'stylesheet');
 		element.setAttribute('type', 'text/css');
 		element.setAttribute('service', 'UTwenteDark');
-		// element.setAttribute('href', `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`);
-		element.setAttribute('href', `https://haverkae.home.xs4all.nl/Files/UTwente_Dark/${path}`);
-		element.async = false;
+		element.setAttribute('href', `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`);
+		// element.setAttribute('href', `https://haverkae.home.xs4all.nl/Files/UTwente_Dark/${path}`); // Haha you found a secret url
+		element.async = true;
 
 		document.documentElement.insertAdjacentElement('beforeend', element);
 
 		const head = await waitForElm('head');
 
 		head.parentNode.insertBefore(element, head.nextSibling);
+
+		// // This is another option to load the styles
+		// const element = document.createElement('style');
+		// element.setAttribute('service', 'UTwenteDark');
+		// var xmlHttp = new XMLHttpRequest();
+		// xmlHttp.open('GET', `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`, false); // false for synchronous request
+		// xmlHttp.send(null);
+		// element.innerHTML = xmlHttp.responseText;
+		// console.log(element.innerHTML);
+		// document.documentElement.insertAdjacentElement('beforeend', element);
 
 		console.log(`'${path}' injected in frame!`);
 	};
@@ -57,26 +69,17 @@ const enable = (host) => {
 };
 
 const disable = () => {
+	chrome.runtime.sendMessage({ site: { enabled: false } });
 	[...document.querySelectorAll("*[service='UTwenteDark']")].map((e) => e && e.remove());
 };
 
 // On start, disable or enable if the host matches, then set the icon
 if (window.location.hostname !== '') {
 	const host = getHost(window.location);
-	let referrer = undefined;
-	try {
-		referrer = getHost(window.parent.location);
-	} catch (e) {
-		// CORS is active and we cannot read the parent, so we know that the origin is different.
-		// Becase the domain is different, we can (for now) use the referrer.
-		// In the future this should be changed so that the iframe sends the url of the current page, and the background.js crease a single string using both the tab window url and the message url and use it as key
-		// Then the background.js should initialize the content script, by responsing to a request on start and returning the value of the joined string.
-		referrer = getHost(document.referrer);
-	}
 	const path = window.location.pathname;
 
-	// Set a temporary black background, to reduce flashes
 	if (shouldTheme(host, path)) {
+		// Set a temporary black background, to reduce white flashes by a tiny bit because of resources still loading
 		// This list is optional. It should only be used on the domains known to work properly.
 		const html = [
 			'rooster.utwente.nl',
@@ -91,7 +94,7 @@ if (window.location.hostname !== '') {
 		const e = document.createElement('style');
 		e.setAttribute('type', 'text/css');
 		e.setAttribute('service', 'UTwenteDark');
-		e.async = false;
+		e.async = true;
 
 		if (html.includes(host)) {
 			e.innerHTML = `
@@ -116,25 +119,28 @@ if (window.location.hostname !== '') {
 
 		// On status change, disable or enable if the host matches
 		chrome.storage.sync.onChanged.addListener((changes, _namespace) => {
-			console.log(changes.disabledDomains);
-			console.log(referrer || host);
-			if (!changes.disabledDomains.newValue[referrer || host]) {
-				enable(host);
-				chrome.runtime.sendMessage({ site: { domain: referrer || host, enabled: true } });
-			} else {
-				disable();
-				chrome.runtime.sendMessage({ site: { domain: referrer || host, enabled: false } });
-			}
+			chrome.runtime.sendMessage({ getKey: true }, (response) => {
+				// Now we check whether the value for this tab host was changed. If so, we know the change applies to this tab
+				// Else the change was made on another tab host
+				if (changes.disabledDomains.oldValue[response.key] === changes.disabledDomains.newValue[response.key])
+					return;
+
+				if (!changes.disabledDomains.newValue[response.key]) {
+					enable(host);
+				} else {
+					disable();
+				}
+			});
 		});
 
 		chrome.storage.sync.get({ disabledDomains: {} }, (result) => {
-			if (!result.disabledDomains[referrer || host]) {
-				enable(host);
-				chrome.runtime.sendMessage({ site: { domain: referrer || host, enabled: true } });
-			} else {
-				disable();
-				chrome.runtime.sendMessage({ site: { domain: referrer || host, enabled: false } });
-			}
+			chrome.runtime.sendMessage({ getKey: true }, (response) => {
+				if (!result.disabledDomains[response.key]) {
+					enable(host);
+				} else {
+					disable();
+				}
+			});
 		});
 	}
 }
