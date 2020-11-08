@@ -328,6 +328,10 @@ a {
 	outline: none !important;
 }
 
+.user_content a {
+	color: var(--accent-light) !important;
+}
+
 a.media-comment {
 	filter: invert(1);
 	color: #111111 !important;
