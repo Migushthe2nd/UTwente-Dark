@@ -270,7 +270,8 @@ ac-input-box:hover,
 .hover-container:hover,
 .agenda-event__item:hover,
 .discussion-reply-box:hover,
-#rubric_holder .hide_rubric_link:hover {
+#rubric_holder .hide_rubric_link:hover,
+.course-list-table .course-list-table-row:hover {
 	transition: background-color cubic-bezier(0.075, 0.82, 0.165, 1) 0.3s !important;
 	background-color: rgba(0, 0, 0, 0.2) !important;
 	cursor: pointer !important;
@@ -421,6 +422,10 @@ td,
 
 .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
 	background: var(--button-active) !important;
+}
+
+body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .menu-item__text {
+	color: var(--accent);
 }
 
 .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-icon-svg {
@@ -991,6 +996,10 @@ i[class*='mimeClass-folder'] {
 	position: relative !important;
 }
 
+.file-upload-submission-attachment {
+	z-index: 555;
+}
+
 table.grade-values {
 	border-radius: var(--border-radius) !important;
 	overflow: hidden !important;
@@ -1106,6 +1115,10 @@ label.fCrpb_egrg {
 }
 
 /* Calendar */
+
+.agenda-day.agenda-today {
+	background: unset !important;
+}
 
 .agenda-wrapper {
 	background-color: unset;
