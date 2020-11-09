@@ -337,6 +337,10 @@ a.media-comment {
 	color: #111111 !important;
 }
 
+a[href*='/download'] {
+	color: var(--accent-light) !important;
+}
+
 .PlannerItem-styles__title > a {
 	color: var(--color-2);
 }
