@@ -187,7 +187,8 @@ div[class^='note-'] > iframe {
 /* Chat */
 
 div[class^='chat-'],
-div[class^='note-'] {
+div[class^='note-'],
+div[class^='panel-'] {
 	background-color: var(--background-accent-2) !important;
 }
 
