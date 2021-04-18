@@ -294,7 +294,7 @@ a.ic-item-row__content-link::after,
 .ig-header-title > button::after,
 .ig-info > a::after,
 .file-upload-submission-info a::after,
-a.fbyHH_bGBk::after,
+/* a.fbyHH_bGBk::after, */
 .recording a.ig-title::after,
 a.element_toggler::after,
 .feature-flag .element_toggler::after {
@@ -307,6 +307,15 @@ a.element_toggler::after,
 	pointer-events: auto;
 	content: '';
 	box-sizing: border-box;
+}
+
+/* fix the link streching to the whole parent in the navbar */
+a.fOyUs_bGBk {
+	display: block;
+}
+
+a.fOyUs_bGBk:hover {
+	color: var(--accent-light) !important;
 }
 
 button.element_toggler:focus {
@@ -1402,7 +1411,7 @@ div#compose-message-course-bs.dropdown-menu.open,
 }
 
 .fOyUs_bGBk {
-	color: var(--color);
+	color: var(--color) !important;
 }
 
 .dpCPB_bGBk.dpCPB_ddES .fOyUs_bGBk {
