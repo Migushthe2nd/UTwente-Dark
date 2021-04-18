@@ -245,3 +245,27 @@ a:hover {
 .GCUXQXIIV td {
 	background-color: initial !important;
 }
+
+/* Time bar related */
+.wc-time-slots {
+	z-index: 1 !important;
+}
+
+.wc-day-column[class^='day-'] {
+	position: relative !important;
+}
+
+.wc-day-column[class^='day-'] > hr.current-time {
+	/* height: 47%; Change this depending on the time */
+	width: 100%;
+	position: absolute !important;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 2;
+	margin: unset !important;
+	border: unset;
+	border-bottom: #a80000 2px solid;
+}
+
+.wc-day-column[class^='day-'] > .wc-day-column-inner {
+	z-index: 1 !important;
+}
