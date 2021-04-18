@@ -20,28 +20,27 @@ a:hover {
 	color: #fff !important;
 }
 
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabs {
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabs,
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab,
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover,
+.gwt-TabLayoutPanelContentContainer,
+.GC02KLKBG0,
+.GC02KLKBJ0 > ul {
 	border-color: #666 !important;
 }
 
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab {
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab,
+.GC02KLKBG0,
+.GC02KLKBG0 ul {
 	background-color: #333 !important;
-	border-color: #666 !important;
 }
 
 .gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover {
 	background-color: #333 !important;
-	border-color: #666 !important;
 }
 
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab .gwt-Label {
-	color: #ddd !important;
-}
-
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab .gwt-Label:hover {
-	color: #fff !important;
-}
-
+.GC02KLKBG0,
+.GC02KLKBG0 ul,
 .gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected,
 .gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected:hover {
 	background-color: var(--background-color) !important;
@@ -49,11 +48,21 @@ a:hover {
 }
 
 .gwt-HTML,
+.gwt-Label,
 .gwt-InlineLabel {
 	color: #ddd !important;
 }
 
+.GC02KLKBFS li .gwt-HTML,
+.GC02KLKBFS li .gwt-Label,
+.GC02KLKBMR li .gwt-HTML,
+.GC02KLKBMR li .gwt-Label {
+	background-color: var(--background-accent-8) !important;
+	border-radius: 100px;
+}
+
 .gwt-HTML:hover,
+.gwt-Label:hover,
 .gwt-InlineLabel:hover {
 	color: #fff !important;
 }
@@ -169,7 +178,7 @@ a:hover {
 }
 
 .wc-time {
-	filter: brightness(0.8) !important;
+	filter: brightness(0.9) !important;
 }
 
 .wc-time-slot {
@@ -246,17 +255,74 @@ a:hover {
 	background-color: initial !important;
 }
 
+.GC02KLKBAP::before {
+	content: unset !important;
+}
+
+.GC02KLKBBP {
+	background-color: var(--background-accent-2);
+	border-color: #666 !important;
+}
+
+.GC02KLKBPO,
+.GC02KLKBEP,
+.GC02KLKBAP,
+.GC02KLKBAJ,
+.GC02KLKBFP {
+	background-color: initial !important;
+}
+
+.GC02KLKBDR {
+	background-color: var(--background-accent-6);
+}
+
+.GC02KLKBOO {
+	color: #ddd !important;
+}
+
+/* Popups weird white bottom bar */
+.GC02KLKBJQ,
+.GC02KLKBIQ {
+	margin: unset !important;
+	padding: 10px 14px !important;
+}
+
+/* Radio buttons */
+.GC02KLKBIV {
+	filter: invert(1);
+}
+
+/* Subjects bar right */
+.GC02KLKBBJ {
+	color: #ddd;
+}
+
+.GC02KLKBLI.GC02KLKBNI::before {
+	border-top: 4px solid #fff;
+}
+
+.GC02KLKBBK:hover,
+.GC02KLKBBK.GC02KLKBGI,
+.gwt-CheckBox:hover {
+	background-color: var(--background-color) !important;
+	color: #fff !important;
+}
+
+.GC02KLKBEJ {
+	fill: #fff !important;
+}
+
 /* Time bar related */
 .wc-time-slots {
 	z-index: 1 !important;
 }
 
-.wc-day-column[class^='day-'] {
+.wc-time-slots td[class^="wc-day-column day-"] {
 	position: relative !important;
 }
 
-.wc-day-column[class^='day-'] > hr.current-time {
-	/* height: 47%; Change this depending on the time */
+.wc-time-slots td[class^="wc-day-column day-"] > hr.current-time {
+	height: 47%;
 	width: 100%;
 	position: absolute !important;
 	background: rgba(0, 0, 0, 0.4);
@@ -266,6 +332,14 @@ a:hover {
 	border-bottom: #a80000 2px solid;
 }
 
-.wc-day-column[class^='day-'] > .wc-day-column-inner {
+.wc-time-slots td[class^="wc-day-column day-"] > .wc-day-column-inner {
 	z-index: 1 !important;
+}
+
+.gwt-PopupPanelGlass {
+	z-index: 5;
+}
+
+.gwt-PopupPanel {
+	z-index: 10;
 }
