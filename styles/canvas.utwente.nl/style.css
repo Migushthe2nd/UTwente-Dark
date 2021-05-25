@@ -1433,3 +1433,8 @@ div#compose-message-course-bs.dropdown-menu.open,
 	width: 100% !important;
 	height: 100% !important;
 }
+
+.mejs-layer {
+	width: 100% !important;
+	height: 100% !important;
+}
