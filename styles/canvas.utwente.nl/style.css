@@ -1438,3 +1438,8 @@ div#compose-message-course-bs.dropdown-menu.open,
 	width: 100% !important;
 	height: 100% !important;
 }
+
+/* Fix some tables being width 0% */
+table[style*="width: 0%"] {
+	width: auto !important;
+}
