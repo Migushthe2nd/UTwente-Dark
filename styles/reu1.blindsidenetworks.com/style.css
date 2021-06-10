@@ -82,6 +82,10 @@ div[class*="externalVideoNote-"] {
 	color: var(--color-2) !important;
 }
 
+div[class*="text-"] {
+	color: var(--color-2) !important;
+}
+
 div[class*="fileList-"] {
 	background: var(--background-accent-3) !important;
 }
