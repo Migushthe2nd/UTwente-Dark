@@ -1,3 +1,9 @@
+:root {
+	--color-text: var(--color-2) !important;
+	--color-gray-dark: var(--color-2) !important;
+	--dropdown-bg: var(--background-accent-2) !important;
+}
+
 html {
 	background: var(--background-color) !important;
 }
