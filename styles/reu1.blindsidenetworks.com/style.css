@@ -150,17 +150,14 @@ div[class*="description-"] {
 	color: var(--color-2) !important;
 }
 
-div[class*="scrollableList-"],
-div[class*="verticalList-"],
-div[class*="virtulizedScrollableList-"] {
+*[class*="scrollableList-"],
+*[class*="verticalList-"],
+*[class*="virtulizedScrollableList-"],
+*[class*="scrollStyle-"] {
 	background: unset !important;
 }
 
 div[class*="dataSaving-"] {
-	background: unset !important;
-}
-
-div[class*="scrollStyle-"] {
 	background: unset !important;
 }
 
