@@ -150,7 +150,9 @@ div[class*="description-"] {
 	color: var(--color-2) !important;
 }
 
-div[class*="scrollableList-"] div[class*="verticalList-"] div[class*="virtulizedScrollableList-"] {
+div[class*="scrollableList-"],
+div[class*="verticalList-"],
+div[class*="virtulizedScrollableList-"] {
 	background: unset !important;
 }
 
