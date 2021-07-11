@@ -39,6 +39,11 @@ a:hover {
 	background-color: #333 !important;
 }
 
+.GC02KLKBD0 {
+	background-color: var(--background-accent-4) !important;
+	color: #fff !important;
+}
+
 .GC02KLKBG0,
 .GC02KLKBG0 ul,
 .gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected,
