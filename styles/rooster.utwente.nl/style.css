@@ -211,6 +211,21 @@ a:hover {
 	color: #ddd !important;
 }
 
+.GC02KLKBPW td {
+	border-color: #666 !important;
+	background-color: var(--background-color) !important;
+	color: #ddd !important;
+}
+
+.GC02KLKBLV td {
+	background-color: #272727 !important;
+	border-color: #666 !important;
+}
+
+.GC02KLKBLV.GC02KLKBGX td {
+	background-color: #333 !important;
+}
+
 .GCUXQXIB0,
 .GCUXQXIB0 ul,
 .GCUXQXIPY {
