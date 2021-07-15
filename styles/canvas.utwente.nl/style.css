@@ -1443,3 +1443,9 @@ div#compose-message-course-bs.dropdown-menu.open,
 table[style*="width: 0%"] {
 	width: auto !important;
 }
+
+.questions,
+.question,
+.question .header {
+	background-color: unset !important;
+}
