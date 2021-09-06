@@ -1449,3 +1449,11 @@ table[style*="width: 0%"] {
 .question .header {
 	background-color: unset !important;
 }
+
+.ui-widget-content {
+	color: var(--accent-light) !important;
+}
+
+.student-groups .student-group-join {
+	flex-basis: 6rem !important;
+}
