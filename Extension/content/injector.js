@@ -1,14 +1,14 @@
 const getHost = (url) => {
 	if (!url) return;
 	const urlObj = new URL(url);
-	const hostsplit = urlObj.hostname.split('.');
-	return hostsplit.slice(Math.max(hostsplit.length - 3, 0)).join('.');
+	const hostsplit = urlObj.hostname.split(".");
+	return hostsplit.slice(Math.max(hostsplit.length - 3, 0)).join(".");
 };
 
 const shouldTheme = (host, path) => {
-	if (host === 'signon.utwente.nl' && path !== '/utsso/login.jsp') {
+	if (host === "signon.utwente.nl" && path !== "/utsso/login.jsp") {
 		return false;
-	} else if (host.includes('blindsidenetworks.com') && !path.includes('html5client')) {
+	} else if (host.includes("blindsidenetworks.com") && !path.includes("html5client")) {
 		return false;
 	} else return true;
 };
@@ -37,17 +37,16 @@ const enable = (host) => {
 	};
 
 	const inject = async (path) => {
-		const element = document.createElement('link');
-		element.setAttribute('rel', 'stylesheet');
-		element.setAttribute('type', 'text/css');
-		element.setAttribute('service', 'UTwenteDark');
-		element.setAttribute('href', `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`);
-		// element.setAttribute('href', `https://haverkae.home.xs4all.nl/Files/UTwente_Dark/${path}`); // Haha you found the same secret url
+		const element = document.createElement("link");
+		element.setAttribute("rel", "stylesheet");
+		element.setAttribute("type", "text/css");
+		element.setAttribute("service", "UTwenteDark");
+		element.setAttribute("href", `https://migushthe2nd.github.io/UTwente-Dark/styles/${path}`); // Haha you found the secret url
 		element.async = true;
 
-		document.documentElement.insertAdjacentElement('beforeend', element);
+		document.documentElement.insertAdjacentElement("beforeend", element);
 
-		const head = await waitForElm('head');
+		const head = await waitForElm("head");
 
 		head.parentNode.insertBefore(element, head.nextSibling);
 
@@ -64,7 +63,7 @@ const enable = (host) => {
 		console.log(`'${path}' injected in frame!`);
 	};
 
-	inject('colors.css');
+	inject("colors.css");
 	inject(`${host}/style.css`);
 };
 
@@ -74,7 +73,7 @@ const disable = () => {
 };
 
 // On start, disable or enable if the host matches, then set the icon
-if (window.location.hostname !== '') {
+if (window.location.hostname !== "") {
 	const host = getHost(window.location);
 	const path = window.location.pathname;
 
@@ -82,18 +81,18 @@ if (window.location.hostname !== '') {
 		// Set a temporary black background, to reduce white flashes by a tiny bit because of resources still loading
 		// This list is optional. It should only be used on the domains known to work properly.
 		const html = [
-			'rooster.utwente.nl',
-			'canvas.utwente.nl',
-			'printquota.utwente.nl',
-			'printportal.utwente.nl',
-			'horusapp.nl',
+			"rooster.utwente.nl",
+			"canvas.utwente.nl",
+			"printquota.utwente.nl",
+			"printportal.utwente.nl",
+			"horusapp.nl",
 		];
 
-		const body = ['osiris.utwente.nl', 'signon.utwente.nl'];
+		const body = ["osiris.utwente.nl", "signon.utwente.nl"];
 
-		const e = document.createElement('style');
-		e.setAttribute('type', 'text/css');
-		e.setAttribute('service', 'UTwenteDark');
+		const e = document.createElement("style");
+		e.setAttribute("type", "text/css");
+		e.setAttribute("service", "UTwenteDark");
 		e.async = true;
 
 		if (html.includes(host)) {

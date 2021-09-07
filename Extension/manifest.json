@@ -2,7 +2,7 @@
 	"name": "UTwente Dark",
 	"description": "A collection of dark styles for UTwente websites. Contact Migush#4096 on Discord for issues or suggestions.",
 	"author": "Migush",
-	"version": "0.1",
+	"version": "0.2",
 	"manifest_version": 2,
 	"icons": {
 		"128": "icon_128.png"
@@ -17,6 +17,7 @@
 	},
 	"permissions": [
 		"storage",
+		"https://migushthe2nd.github.io/*",
 		"https://*.utwente.nl/*",
 		"https://utwente.instructure.com/*",
 		"https://*.blindsidenetworks.com/*",
@@ -38,6 +39,17 @@
 			],
 			"js": [
 				"content/injector.js"
+			]
+		},
+		{
+			"all_frames": true,
+			"match_about_blank": true,
+			"run_at": "document_idle",
+			"matches": [
+				"https://canvas.utwente.nl/*"
+			],
+			"js": [
+				"content/player_fixes.js"
 			]
 		}
 	],

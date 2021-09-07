@@ -1457,3 +1457,25 @@ table[style*="width: 0%"] {
 .student-groups .student-group-join {
 	flex-basis: 6rem !important;
 }
+
+/* video player fixes */
+.tmzXf_chlC {
+	width: max-content !important;
+}
+
+.dAkaU_EwaR {
+	border-radius: 0 !important;
+	min-width: var(--dAkaU-width) !important;
+	width: max-content !important;
+}
+
+.dAkaU_EwaR:focus {
+	outline: none !important;
+	box-shadow: none !important;
+	border: none !important;
+}
+
+.iframe[data-media-type="video"] {
+	width: 30rem !important;
+	max-width: 100% !important;
+}
