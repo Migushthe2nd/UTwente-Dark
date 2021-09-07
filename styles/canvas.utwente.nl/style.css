@@ -1480,7 +1480,9 @@ iframe[data-media-type="video"] {
 	max-width: 100% !important;
 }
 
-.ic-flash-error,
-.ic-flash-success {
+.ic-flash-info,
+.ic-flash-success,
+.ic-flash-warning,
+.ic-flash-error {
 	background: var(--background-accent-2) !important;
 }
