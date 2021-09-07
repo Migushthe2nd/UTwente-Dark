@@ -1475,7 +1475,7 @@ table[style*="width: 0%"] {
 	border: none !important;
 }
 
-.iframe[data-media-type="video"] {
+iframe[data-media-type="video"] {
 	width: 30rem !important;
 	max-width: 100% !important;
 }
