@@ -27,46 +27,52 @@
 	const urlParams = new URLSearchParams(window.location.search);
 	const url = urlParams.get("url");
 
-	fetch(url)
-		.then((response) => response.text())
-		.then((data) => {
-			const playerEnv = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]).media_object;
+	const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
 
-			const title = playerEnv.title;
-			const sources = playerEnv.media_sources;
-			const tracks = playerEnv.media_tracks;
+	if (isChrome) {
+		location.href = url;
+	} else {
+		fetch(url)
+			.then((response) => response.text())
+			.then((data) => {
+				const playerEnv = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]).media_object;
 
-			const player = new Plyr("#player", {
-				controls: [
-					"play-large", // The large play button in the center
-					"play", // Play/pause playback
-					"progress", // The progress bar and scrubber for playback and buffering
-					"duration", // The full duration of the media
-					"mute", // Toggle mute
-					"volume", // Volume control
-					"captions", // Toggle captions
-					"settings", // Settings menu
-					"pip", // Picture-in-picture (currently Safari only)
-					"airplay", // Airplay (currently Safari only)
-					"download", // Show a download button with a link to either the current source or a custom URL you specify in your options
-					"fullscreen", // Toggle fullscreen,
-					"title",
-				],
+				const title = playerEnv.title;
+				const sources = playerEnv.media_sources;
+				const tracks = playerEnv.media_tracks;
+
+				const player = new Plyr("#player", {
+					controls: [
+						"play-large", // The large play button in the center
+						"play", // Play/pause playback
+						"progress", // The progress bar and scrubber for playback and buffering
+						"duration", // The full duration of the media
+						"mute", // Toggle mute
+						"volume", // Volume control
+						"captions", // Toggle captions
+						"settings", // Settings menu
+						"pip", // Picture-in-picture (currently Safari only)
+						"airplay", // Airplay (currently Safari only)
+						"download", // Show a download button with a link to either the current source or a custom URL you specify in your options
+						"fullscreen", // Toggle fullscreen,
+						"title",
+					],
+				});
+
+				player.source = {
+					title,
+					type: playerEnv.media_type.replace("/*", ""),
+					sources: sources.map((source) => {
+						return { src: source.url, type: source.content_type, size: source.height };
+					}),
+				};
+
+				player.on("ready", (event) => {
+					console.log("Player ready!");
+				});
+			})
+			.catch((error) => {
+				console.error("Error:", error);
 			});
-
-			player.source = {
-				title,
-				type: playerEnv.media_type.replace("/*", ""),
-				sources: sources.map((source) => {
-					return { src: source.url, type: source.content_type, size: source.height };
-				}),
-			};
-
-			player.on("ready", (event) => {
-				console.log("Player ready!");
-			});
-		})
-		.catch((error) => {
-			console.error("Error:", error);
-		});
+	}
 </script>
