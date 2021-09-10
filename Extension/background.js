@@ -132,8 +132,8 @@ chrome.webRequest.onHeadersReceived.addListener(
 		};
 	},
 	{
-		urls: ["https://migushthe2nd.github.io/*", "https://canvas.utwente.nl/media_objects_iframe*"],
+		urls: ["https://canvas.utwente.nl/media_objects_iframe*"],
 		types: ["xmlhttprequest", "sub_frame"],
 	},
-	["responseHeaders", "blocking"]
+	["responseHeaders", "blocking", "extraHeaders"]
 );
