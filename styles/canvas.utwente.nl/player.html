@@ -24,17 +24,37 @@
 <video id="player"></video>
 
 <script>
-	const urlParams = new URLSearchParams(window.location.search);
-	const url = urlParams.get("url");
+	const windowParams = new URLSearchParams(window.location.search);
+	const url = windowParams.get("url");
+	const urlObj = new URL(url);
+	const canvasDomain = new URL(url).origin;
+	const mediahref = urlObj.searchParams.get("mediahref");
+	const typeParam = urlObj.searchParams.get("type");
 
 	fetch(url)
 		.then((response) => response.text())
 		.then((data) => {
-			const playerEnv = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]).media_object;
+			const env = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]);
+			const playerEnv = env.media_object;
 
-			const title = playerEnv.title;
-			const sources = playerEnv.media_sources;
-			const tracks = playerEnv.media_tracks;
+			let title;
+			let sources;
+			let tracks;
+			let type;
+			if (playerEnv) {
+				title = playerEnv.title;
+				sources = playerEnv.media_sources;
+				tracks = playerEnv.media_tracks;
+				type = playerEnv.media_type.replace("/*", "");
+			} else if (mediahref) {
+				const t = typeParam.replace(/\?.+/, "");
+				sources = [{ url: canvasDomain + mediahref, type: t }];
+				console.log(sources);
+				type = t;
+			} else {
+				window.location.href = url;
+				return;
+			}
 
 			const player = new Plyr("#player", {
 				controls: [
@@ -56,7 +76,7 @@
 
 			player.source = {
 				title,
-				type: playerEnv.media_type.replace("/*", ""),
+				type,
 				sources: sources.map((source) => {
 					return { src: source.url, type: source.content_type, size: source.height };
 				}),
