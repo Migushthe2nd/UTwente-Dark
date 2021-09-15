@@ -28,91 +28,193 @@
 	const url = windowParams.get("url");
 	const directUrl = windowParams.get("directurl");
 
-	const player = new Plyr("#player", {
-		controls: [
-			"play-large", // The large play button in the center
-			"play", // Play/pause playback
-			"progress", // The progress bar and scrubber for playback and buffering
-			"duration", // The full duration of the media
-			"mute", // Toggle mute
-			"volume", // Volume control
-			"captions", // Toggle captions
-			"settings", // Settings menu
-			"pip", // Picture-in-picture (currently Safari only)
-			"airplay", // Airplay (currently Safari only)
-			"download", // Show a download button with a link to either the current source or a custom URL you specify in your options
-			"fullscreen", // Toggle fullscreen,
-			"title",
-		],
-	});
+	if (url || directUrl) {
+		const player = new Plyr("#player", {
+			controls: [
+				"play-large", // The large play button in the center
+				"play", // Play/pause playback
+				"progress", // The progress bar and scrubber for playback and buffering
+				"duration", // The full duration of the media
+				"mute", // Toggle mute
+				"volume", // Volume control
+				"captions", // Toggle captions
+				"settings", // Settings menu
+				"pip", // Picture-in-picture (currently Safari only)
+				"airplay", // Airplay (currently Safari only)
+				"download", // Show a download button with a link to either the current source or a custom URL you specify in your options
+				"fullscreen", // Toggle fullscreen,
+				"title",
+			],
+		});
 
-	player.on("ready", (event) => {
-		console.log("Player ready!");
-	});
+		player.on("ready", (event) => {
+			console.log("Player ready!");
+		});
 
-	if (url) {
-		fetch(url)
-			.then((response) => response.text())
-			.then((data) => {
-				const urlObj = new URL(url);
-				const canvasDomain = new URL(url).origin;
-				const mediahref = urlObj.searchParams.get("mediahref");
-				const typeParam = urlObj.searchParams.get("type");
+		if (url) {
+			fetch(url)
+				.then((response) => response.text())
+				.then((data) => {
+					const urlObj = new URL(url);
+					const canvasDomain = new URL(url).origin;
+					const mediahref = urlObj.searchParams.get("mediahref");
+					const typeParam = urlObj.searchParams.get("type");
 
-				const env = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]);
-				const playerEnv = env.media_object;
+					const env = JSON.parse(data.match(/ENV\s?=\s?({.*});/)[1]);
+					const playerEnv = env.media_object;
 
-				let title;
-				let sources;
-				let tracks;
-				let type;
-				if (playerEnv) {
-					title = playerEnv.title;
-					sources = playerEnv.media_sources;
-					tracks = playerEnv.media_tracks;
-					type = playerEnv.media_type.replace("/*", "");
-				} else if (mediahref) {
-					const t = typeParam.replace(/\?.+/, "");
-					sources = [{ url: canvasDomain + mediahref, type: t }];
-					type = t;
-				} else {
-					window.location.href = url;
-					return;
-				}
+					let title;
+					let sources;
+					let tracks;
+					let type;
+					if (playerEnv) {
+						title = playerEnv.title;
+						sources = playerEnv.media_sources;
+						tracks = playerEnv.media_tracks;
+						type = playerEnv.media_type.replace("/*", "");
+					} else if (mediahref) {
+						const t = typeParam.replace(/\?.+/, "");
+						sources = [{ url: canvasDomain + mediahref, type: t }];
+						type = t;
+					} else {
+						window.location.href = url;
+						return;
+					}
 
-				player.source = {
-					title,
-					type,
-					sources: sources.map((source) => {
-						return { src: source.url, type: source.content_type, size: source.height };
-					}),
-				};
-			})
-			.catch((error) => {
-				console.error("Error:", error);
-			});
-	} else if (directUrl) {
-		const type = windowParams.get("type");
-		let url;
-		try {
-			// full valid url, with scheme
-			new URL(directUrl);
-			url = directUrl;
-		} catch (e) {
-			// else try to use the referer origin
-			console.error(e);
+					player.source = {
+						title,
+						type,
+						sources: sources.map((source) => {
+							return { src: source.url, type: source.content_type, size: source.height };
+						}),
+					};
+				})
+				.catch((error) => {
+					console.error("Error:", error);
+				});
+		} else if (directUrl) {
+			const type = windowParams.get("type");
+			let url;
 			try {
-				const refererObj = new URL(document.referrer);
-				canvasDomain = refererObj.origin;
-				url = canvasDomain + directUrl;
+				// full valid url, with scheme
+				new URL(directUrl);
+				url = directUrl;
 			} catch (e) {
+				// else try to use the referer origin
 				console.error(e);
+				try {
+					const refererObj = new URL(document.referrer);
+					canvasDomain = refererObj.origin;
+					url = canvasDomain + directUrl;
+				} catch (e) {
+					console.error(e);
+				}
+			}
+
+			player.source = {
+				type,
+				sources: [{ src: url }],
+			};
+		}
+	} else {
+		function addRefererBase(url, referer) {
+			try {
+				// full valid url, with scheme
+				new URL(url);
+			} catch (e) {
+				// else try to use the referer origin
+				if (document.referrer) {
+					url = new URL(document.referrer).origin + url;
+				} else {
+					// else use the current origin
+					url = new URL(referer).origin + url;
+				}
+			}
+			return url;
+		}
+
+		const windowParams = new URLSearchParams(window.location.search);
+		const mediaType = windowParams.get("mediaType");
+		const mediaId = windowParams.get("mediaId");
+		const dlUrl = windowParams.get("dlUrl");
+		const originalUrl = windowParams.get("originalUrl");
+
+		function error() {
+			if (originalUrl) {
+				window.location.href = originalUrl;
+			} else {
+				document.innerHTML = "Player was unable to start. Please report this to the creator of UTwente-Dark";
 			}
 		}
 
-		player.source = {
-			type,
-			sources: [{ src: url }],
-		};
+		const player = new Plyr("#player", {
+			controls: [
+				"play-large", // The large play button in the center
+				"play", // Play/pause playback
+				"progress", // The progress bar and scrubber for playback and buffering
+				"duration", // The full duration of the media
+				"mute", // Toggle mute
+				"volume", // Volume control
+				"captions", // Toggle captions
+				"settings", // Settings menu
+				"pip", // Picture-in-picture (currently Safari only)
+				"airplay", // Airplay (currently Safari only)
+				"download", // Show a download button with a link to either the current source or a custom URL you specify in your options
+				"fullscreen", // Toggle fullscreen,
+				"title",
+			],
+		});
+
+		player.on("ready", (event) => {
+			console.log("Player ready!");
+		});
+
+		if (mediaId) {
+			fetch(`https://canvas.utwente.nl/media_objects/${mediaId}/info`)
+				.then((response) => response.json())
+				.then((data) => {
+					const mappedSources = data.media_sources.map((source) => {
+						return { src: source.url, type: source.content_type, size: source.height };
+					});
+
+					if (dlUrl) {
+						const originalQuality = { src: addRefererBase(dlUrl), type: "video/mp4", size: 4320 };
+						mappedSources.push(originalQuality);
+					}
+
+					player.source = {
+						title: data.title,
+						type: data.media_type ? data.media_type.replace(/\/.+/, "") : mediaType,
+						sources: mappedSources,
+					};
+				})
+				.catch((e) => {
+					window.location.href = originalUrl;
+					console.error("Error:", e);
+					error();
+				});
+		} else if (dlUrl) {
+			player.source = {
+				type: mediaType,
+				sources: [{ src: addRefererBase(dlUrl), type: mediaType, label: "Original" }],
+			};
+		} else if (originalUrl) {
+			const urlObj = new URL(originalUrl);
+			const mediahref = urlObj.searchParams.get("mediahref");
+			const typeParam = urlObj.searchParams.get("type");
+
+			if (mediahref) {
+				const type = typeParam ? typeParam.replace(/\?.+/, "") : mediaType;
+
+				player.source = {
+					type,
+					sources: [{ src: addRefererBase(mediahref, originalUrl) }],
+				};
+			} else {
+				error();
+			}
+		} else {
+			error();
+		}
 	}
 </script>

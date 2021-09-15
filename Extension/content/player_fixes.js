@@ -1,22 +1,35 @@
-const videoFrames = document.querySelectorAll('iframe[data-media-type="video"]');
+const videoFrames = document.querySelectorAll(
+	'iframe[data-media-type="video"], div[data-type="video"], div#media_preview'
+);
 console.log(`Replacing ${videoFrames.length} video players...`);
 
-for (const frame of videoFrames) {
-	frame.src = `https://migushthe2nd.github.io/UTwente-Dark/styles/canvas.utwente.nl/player.html?url=${encodeURIComponent(
-		frame.src
-	)}`;
-}
+for (const element of videoFrames) {
+	let mediaId = element.getAttribute("data-media_entry_id") || element.getAttribute("data-media-id");
+	if (mediaId === "maybe") {
+		mediaId = null;
+	}
+	const dlUrl = element.getAttribute("data-download_url") || element.getAttribute("data-download-url");
+	const mediaType = element.getAttribute("data-media-type") || element.getAttribute("data-type");
 
-const videoPreviews = document.querySelectorAll("#media_preview[data-download_url]");
-console.log(`Replacing ${videoFrames.length} preview players...`);
+	const frameSrc = new URL("https://migushthe2nd.github.io/UTwente-Dark/styles/canvas.utwente.nl/player.html");
+	if (mediaType) {
+		frameSrc.searchParams.set("mediaType", mediaType);
+	}
+	if (mediaId) {
+		frameSrc.searchParams.set("mediaId", mediaId);
+	}
+	if (dlUrl) {
+		frameSrc.searchParams.set("dlUrl", dlUrl);
+	}
+	if (element.tagName === "IFRAME") {
+		frameSrc.searchParams.set("originalUrl", element.src);
+	}
 
-for (const preview of videoPreviews) {
 	const frame = document.createElement("iframe");
-	frame.src = `https://migushthe2nd.github.io/UTwente-Dark/styles/canvas.utwente.nl/player.html?directurl=${encodeURIComponent(
-		preview.getAttribute("data-download_url")
-	)}&type=${preview.getAttribute("data-type")}`;
+	frame.src = frameSrc.href;
 	frame.allowFullscreen = "allowfullscreen";
 	frame.allow = "fullscreen";
 	frame.classList.add("mejs-container");
-	preview.replaceWith(frame);
+
+	element.replaceWith(frame);
 }

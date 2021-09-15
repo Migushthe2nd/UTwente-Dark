@@ -132,7 +132,7 @@ chrome.webRequest.onHeadersReceived.addListener(
 		};
 	},
 	{
-		urls: ["https://canvas.utwente.nl/media_objects_iframe*"],
+		urls: ["https://canvas.utwente.nl/media_objects*"],
 		types: ["xmlhttprequest", "sub_frame"],
 	},
 	["responseHeaders", "blocking", "extraHeaders"]
