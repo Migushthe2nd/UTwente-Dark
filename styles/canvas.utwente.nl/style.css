@@ -893,7 +893,7 @@ legend {
 .ui-dialog-titlebar-close:hover,
 .btn:hover,
 .Button:hover,
-button[type="button"] {
+button[type="button"]:hover {
 	color: var(--color-2) !important;
 	box-shadow: 0 0 0 2px var(--accent) !important;
 }
@@ -1213,7 +1213,7 @@ label.fCrpb_egrg {
 	background-color: inherit !important;
 }
 
-#minical .fc-toolbar button,
+/* #minical .fc-toolbar button, */
 .ui-datepicker-header .ui-datepicker-prev,
 .ui-datepicker-header .ui-datepicker-next {
 	filter: invert(1);
@@ -1493,7 +1493,8 @@ iframe[data-media-type="video"] {
 
 /* Disable white border when clicking navbar buttons on the left */
 .menu-item.ic-app-header__menu-list-item > *:focus,
-.ic-app-header__logomark:focus {
+.ic-app-header__logomark:focus,
+#context-list .context-list-toggle-box:focus {
 	box-shadow: none !important;
 }
 
