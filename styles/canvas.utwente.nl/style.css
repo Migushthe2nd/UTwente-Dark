@@ -1493,7 +1493,7 @@ iframe[data-media-type="video"] {
 /* Disable white border when clicking navbar buttons on the left */
 .menu-item.ic-app-header__menu-list-item > *:focus,
 .ic-app-header__logomark:focus {
-	box-shadow: none;
+	box-shadow: none !important;
 }
 
 .eHiXd_bGBk::before,
