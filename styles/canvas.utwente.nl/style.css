@@ -890,9 +890,10 @@ legend {
 }
 
 .ui-state-hover,
-.ui-dialog-titlebar-close:focus,
+.ui-dialog-titlebar-close:hover,
 .btn:hover,
-.Button:hover {
+.Button:hover,
+button[type="button"] {
 	color: var(--color-2) !important;
 	box-shadow: 0 0 0 2px var(--accent) !important;
 }
@@ -1503,4 +1504,11 @@ button.eHiXd_bGBk[type="button"]::before,
 button.eHiXd_bGBk[type="reset"]::before,
 button.eHiXd_bGBk[type="submit"]::before {
 	border: unset !important;
+}
+
+.yyQPt_cVYb,
+.yyQPt_cSXm::before,
+.fOyUs_eWbJ.fOyUs_cBHs.fOyUs_fmDy:focus::before,
+.fOyUs_eWbJ.fOyUs_cBHs.fOyUs_dvYc::before {
+	opacity: 0 !important;
 }
