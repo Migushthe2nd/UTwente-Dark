@@ -950,7 +950,8 @@ i[class*="mimeClass-folder"] {
 .mce-widget,
 .mce-widget *,
 .mce-reset,
-.published-status {
+.published-status,
+.fc-button {
 	color: var(--color-2) !important;
 }
 
@@ -1517,4 +1518,14 @@ button.eHiXd_bGBk[type="submit"]::before {
 body.Underline-All-Links__enabled .btn-link,
 body.Underline-All-Links__enabled .Button--link {
 	text-decoration: none !important;
+}
+
+.carat-bottom .ui-menu-carat span {
+	bottom: 0px !important;
+	border-width: 9px 14px 0 !important;
+}
+
+.ui-menu-carat,
+.ui-menu-carat span {
+	border: unset !important;
 }
