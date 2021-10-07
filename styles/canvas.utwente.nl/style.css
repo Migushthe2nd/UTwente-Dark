@@ -1513,3 +1513,8 @@ button.eHiXd_bGBk[type="submit"]::before {
 .fOyUs_eWbJ.fOyUs_cBHs.fOyUs_dvYc::before {
 	opacity: 0 !important;
 }
+
+body.Underline-All-Links__enabled .btn-link,
+body.Underline-All-Links__enabled .Button--link {
+	text-decoration: none !important;
+}
