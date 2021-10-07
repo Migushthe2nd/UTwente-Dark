@@ -890,7 +890,9 @@ legend {
 }
 
 .ui-state-hover,
-.ui-dialog-titlebar-close:focus {
+.ui-dialog-titlebar-close:focus,
+.btn:hover,
+.Button:hover {
 	color: var(--color-2) !important;
 	box-shadow: 0 0 0 2px var(--accent) !important;
 }
@@ -1486,4 +1488,19 @@ iframe[data-media-type="video"] {
 .ic-flash-warning,
 .ic-flash-error {
 	background: var(--background-accent-2) !important;
+}
+
+/* Disable white border when clicking navbar buttons on the left */
+.menu-item.ic-app-header__menu-list-item > *:focus,
+.ic-app-header__logomark:focus {
+	box-shadow: none;
+}
+
+.eHiXd_bGBk::before,
+a.eHiXd_bGBk::before,
+button.eHiXd_bGBk::before,
+button.eHiXd_bGBk[type="button"]::before,
+button.eHiXd_bGBk[type="reset"]::before,
+button.eHiXd_bGBk[type="submit"]::before {
+	border: unset !important;
 }
