@@ -1,0 +1,18 @@
+rooster.utwente.nl
+
+via js, add an <hr> to .wc-grid-timeslot-header
+with css:
+```
+top: 1243px;
+position: absolute;
+width: 100vw;
+z-index: 50;
+left: 0;
+margin: 0;
+border: 1px solid var(--background-accent-10) !important;
+```
+
+and set `top` to the amount of pixels.
+1440 min in a day.
+
+(.wc-grid-timeslot-header height)/1440 * (current time in minutes) = top
