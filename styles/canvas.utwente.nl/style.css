@@ -85,7 +85,8 @@ body,
 
 .module-sequence-footer-content,
 .ic-app-crumbs,
-#breadcrumbs {
+#breadcrumbs,
+.eMdva_bgqc {
 	background: var(--background-color) !important;
 }
 
