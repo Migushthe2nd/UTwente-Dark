@@ -997,6 +997,12 @@ i[class*="mimeClass-folder"] {
 	border-radius: var(--border-radius) !important;
 }
 
+.fdyuz_bGBk {
+	background-color: var(--background-accent-1) !important;
+	border: 1px solid var(--background-accent-6) !important;
+	border-radius: var(--border-radius) !important;
+}
+
 /* Assignments */
 #right-side .details .header {
 	color: var(--accent) !important;
