@@ -977,10 +977,24 @@ i[class*="mimeClass-folder"] {
 .discussion-entries .entry,
 .discussion_entry {
 	background-color: var(--background-accent-2) !important;
+	border-radius: 0 0 var(--border-radius) !important;
+}
+
+.discussion-entries > .entry {
+	border-radius: var(--border-radius) !important;
+	overflow: hidden !important;
 }
 
 .discussion-pubdate {
 	color: var(--color-2) !important;
+}
+
+.discussion_topic > .reply-box-container {
+	border: unset !important;
+}
+
+.discussion-reply-box {
+	border-radius: var(--border-radius) !important;
 }
 
 /* Assignments */
