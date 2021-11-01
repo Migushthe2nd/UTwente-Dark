@@ -969,8 +969,18 @@ i[class*="mimeClass-folder"] {
 	border-color: var(--background-accent-6) !important;
 }
 
-.discussion_entry > .discussion-entry-reply-area {
+.discussion_entry > .discussion-entry-reply-area,
+.discussion-entries .entry {
 	border-color: var(--background-accent-6);
+}
+
+.discussion-entries .entry,
+.discussion_entry {
+	background-color: var(--background-accent-2) !important;
+}
+
+.discussion-pubdate {
+	color: var(--color-2) !important;
 }
 
 /* Assignments */
