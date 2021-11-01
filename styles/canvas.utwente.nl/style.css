@@ -999,8 +999,9 @@ i[class*="mimeClass-folder"] {
 
 .fdyuz_bGBk {
 	background-color: var(--background-accent-1) !important;
-	border: 1px solid var(--background-accent-6) !important;
+	border: 2px solid var(--background-accent-6) !important;
 	border-radius: var(--border-radius) !important;
+	overflow: hidden !important;
 }
 
 /* Assignments */
