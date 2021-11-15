@@ -2,6 +2,10 @@ html {
 	background: var(--background-color) !important;
 }
 
+body {
+	color: var(--color-2) !important;
+}
+
 ::-webkit-scrollbar-track {
 	background: #aaa !important;
 }
