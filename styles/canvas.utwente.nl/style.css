@@ -1466,6 +1466,7 @@ div#compose-message-course-bs.dropdown-menu.open,
 	height: 50vh !important;
 	width: 100% !important;
 	border: unset !important;
+	display: flex !important;
 }
 
 .mejs-mediaelement > video {

@@ -1,5 +1,5 @@
 const videoFrames = document.querySelectorAll(
-	'iframe[data-media-type="video"], div[data-type="video"], div#media_preview'
+	'iframe[data-media-type="video"], div[data-type="video"], div#media_preview, a[href*=media_objects_iframe]'
 );
 console.log(`Replacing ${videoFrames.length} video players...`);
 
@@ -23,6 +23,8 @@ for (const element of videoFrames) {
 	}
 	if (element.tagName === "IFRAME") {
 		frameSrc.searchParams.set("originalUrl", element.src);
+	} else if (element.tagName === "A") {
+		frameSrc.searchParams.set("originalUrl", element.href);
 	}
 
 	const frame = document.createElement("iframe");
