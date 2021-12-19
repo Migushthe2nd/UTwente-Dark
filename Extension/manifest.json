@@ -2,7 +2,7 @@
 	"name": "UTwente Dark",
 	"description": "A collection of dark styles for UTwente websites. Contact Migush#4096 on Discord for issues or suggestions.",
 	"author": "Migush",
-	"version": "0.5",
+	"version": "0.6",
 	"manifest_version": 2,
 	"icons": {
 		"128": "icon_128.png"
