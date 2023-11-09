@@ -316,7 +316,7 @@ a.fOyUs_bGBk {
 	display: block;
 }
 
-a.fOyUs_bGBk:hover {
+a.fOyUs_bGBk:hover, .css-tukfq8-view-link {
 	color: var(--accent-light) !important;
 }
 
