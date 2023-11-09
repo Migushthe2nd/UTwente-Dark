@@ -113,6 +113,10 @@ body,
 	border: unset !important;
 }
 
+.css-1sr6v3o-text {
+	color: var(--color-2) !important;
+}
+
 .ic-DashboardCard__header-subtitle {
 	color: var(--color-2);
 }
